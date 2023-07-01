@@ -3,44 +3,23 @@
 </template>
 
 <script>
-import { use } from "echarts/core";
-import { CanvasRenderer } from "echarts/renderers";
-import { PieChart } from "echarts/charts";
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-} from "echarts/components";
-import VChart, { THEME_KEY } from "vue-echarts";
+import VChart from "vue-echarts";
 import { ref, defineComponent } from "vue";
-
-use([
-  CanvasRenderer,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-]);
 
 export default defineComponent({
   name: "HelloWorld",
   components: {
     VChart,
   },
-  provide: {
-    [THEME_KEY]: "dark",
-  },
+
   setup() {
     const option = ref({
       title: {
-        text: "Nightingale Chart",
+        text: "您最近的提交工程量",
         subtext: "Fake Data",
         left: "center",
       },
-      tooltip: {
-        trigger: "item",
-        formatter: "{a} <br/>{b} : {c} ({d}%)",
-      },
+
       legend: {
         left: "center",
         top: "bottom",
@@ -65,6 +44,7 @@ export default defineComponent({
         },
       },
       series: [
+        // 第一个图片
         {
           name: "Radius Mode",
           type: "pie",
@@ -93,6 +73,7 @@ export default defineComponent({
             { value: 10, name: "rose 8" },
           ],
         },
+        // 第二个
         {
           name: "Area Mode",
           type: "pie",

@@ -59,9 +59,9 @@
             </el-dropdown-menu>
           </el-dropdown>
           <span>公众监督员名字</span>
-          <el-divider></el-divider>
         </el-header>
-
+        <!-- 一个分割线 -->
+        <el-divider></el-divider>
         <el-main>
           <RouterView />
         </el-main>

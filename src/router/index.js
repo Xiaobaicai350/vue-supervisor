@@ -2,6 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/views/Layout/index.vue";
 import Home from "@/views/Home/index.vue";
+import Estimated from "@/views/Estimated/index.vue";
+import ListExInformation from "@/views/ListExInformation/index.vue";
+import SubmitExInformation from "@/views/SubmitExInformation/index.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -14,6 +18,21 @@ const routes = [
         path: "",
         name: "Home",
         component: Home,
+      },
+      {
+        path: "/Estimated",
+        name: "Estimated",
+        component: Estimated,
+      },
+      {
+        path: "/ListExInformation",
+        name: "ListExInformation",
+        component: ListExInformation,
+      },
+      {
+        path: "/SubmitExInformation",
+        name: "SubmitExInformation",
+        component: SubmitExInformation,
       },
     ],
   },

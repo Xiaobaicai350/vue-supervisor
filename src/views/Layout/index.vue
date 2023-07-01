@@ -9,29 +9,35 @@
           @close="handleClose"
           style="height: 852px"
         >
-          <el-submenu index="1">
+          <el-menu-item index="1" @click="toHome">
+            <i class="el-icon-menu"></i>
+            <span slot="title">首页</span>
+          </el-menu-item>
+          <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>导航一</span>
+              <span>反馈异常信息</span>
             </template>
             <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
+              <template slot="title">提交异常信息</template>
+              <el-menu-item index="1-1" @click="toEstimated"
+                >预估AQI等级
+              </el-menu-item>
+              <el-menu-item index="1-2" @click="toSubmitExInformation"
+                >提交异常信息</el-menu-item
+              >
             </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
+            <el-menu-item-group title="提交过的异常信息">
+              <el-menu-item index="1-3" @click="toListExInformation"
+                >已提交的异常信息</el-menu-item
+              >
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">选项4</template>
               <el-menu-item index="1-4-1">选项1</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
-          </el-menu-item>
-          <el-menu-item index="3" disabled>
+          <el-menu-item index="3">
             <i class="el-icon-document"></i>
             <span slot="title">导航三</span>
           </el-menu-item>
@@ -52,7 +58,7 @@
               <el-dropdown-item>删除</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <span>王小虎</span>
+          <span>公众监督员名字</span>
           <el-divider></el-divider>
         </el-header>
 
@@ -66,15 +72,50 @@
 
 <script>
 export default {
-  data() {
-    const item = {
-      date: "2016-05-02",
-      name: "王小虎",
-      address: "上海市普陀区金沙江路 1518 弄",
-    };
-    return {
-      tableData: Array(20).fill(item),
-    };
+  methods: {
+    toHome() {
+      this.$router.push("/").catch((error) => {
+        if (error.name !== "NavigationDuplicated") {
+          throw error;
+        } else {
+          console.log("Navigation duplicated");
+        }
+      });
+    },
+    toEstimated() {
+      this.$router.push("/Estimated").catch((error) => {
+        if (error.name !== "NavigationDuplicated") {
+          throw error;
+        } else {
+          console.log("Navigation duplicated");
+        }
+      });
+    },
+    toSubmitExInformation() {
+      this.$router.push("/SubmitExInformation").catch((error) => {
+        if (error.name !== "NavigationDuplicated") {
+          throw error;
+        } else {
+          console.log("Navigation duplicated");
+        }
+      });
+    },
+    toListExInformation() {
+      this.$router.push("/ListExInformation").catch((error) => {
+        if (error.name !== "NavigationDuplicated") {
+          throw error;
+        } else {
+          console.log("Navigation duplicated");
+        }
+      });
+    },
+
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
   },
 };
 </script>

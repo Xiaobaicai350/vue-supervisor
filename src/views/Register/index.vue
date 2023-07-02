@@ -5,7 +5,7 @@
       <el-col :span="6"></el-col>
       <el-col :span="6">
         <!--标题-->
-        <h1 class="title">监督员管理系统</h1>
+        <h1 class="title">注册监督员账号</h1>
       </el-col>
       <el-col :span="6"></el-col>
     </el-row>
@@ -20,7 +20,7 @@
           label-width="21%"
           class="loginForm"
         >
-          <el-form-item label="账户" prop="username" style="width: 380px">
+          <el-form-item label="用户名" prop="username" style="width: 380px">
             <el-input v-model="loginForm.username"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password" style="width: 380px">
@@ -29,7 +29,7 @@
 
           <el-form-item class="btn-ground">
             <el-button type="primary" @click="submitForm('loginForm')"
-              >立即登陆</el-button
+              >立即注册</el-button
             >
             <el-button @click="resetForm('loginForm')">重置</el-button>
           </el-form-item>
@@ -79,14 +79,7 @@ export default {
             trigger: "blur",
           },
         ],
-        // 设置验证码效验规则
-        code: [
-          { required: true, message: "请输入验证码", trigger: "blur" },
-          { min: 5, max: 5, message: "长度为 5 个字符", trigger: "blur" },
-        ],
       },
-      // 绑定验证码图片
-      codeImg: null,
     };
   },
   methods: {

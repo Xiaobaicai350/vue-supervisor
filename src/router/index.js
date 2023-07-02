@@ -6,6 +6,7 @@ import Estimated from "@/views/Estimated/index.vue";
 import ListExInformation from "@/views/ListExInformation/index.vue";
 import SubmitExInformation from "@/views/SubmitExInformation/index.vue";
 import Login from "@/views/Login/index.vue";
+import Register from "@/views/Register/index.vue";
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,11 @@ const routes = [
     path: "/Login",
     name: "Login",
     component: Login,
+  },
+  {
+    path: "/Register",
+    name: "Register",
+    component: Register,
   },
 ];
 

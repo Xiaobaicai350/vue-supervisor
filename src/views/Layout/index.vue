@@ -10,7 +10,7 @@
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
-          style="height: 852px"
+          style="height: 740px"
         >
           <el-menu-item index="1" @click="toHome">
             <i class="el-icon-menu"></i>
@@ -35,19 +35,7 @@
                 >已提交的异常信息</el-menu-item
               >
             </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
           </el-submenu>
-          <el-menu-item index="3">
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-          </el-menu-item>
         </el-menu>
       </el-aside>
 

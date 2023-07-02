@@ -61,11 +61,11 @@ export default {
       rules: {
         // 设置账户效验规则
         username: [
-          { required: true, message: "请输入账户", trigger: "blur" },
+          { required: true, message: "请输入用户名", trigger: "blur" },
           {
             min: 3,
             max: 10,
-            message: "长度在 3 到 10 个字符的账户",
+            message: "长度在 3 到 10 个字符的用户名",
             trigger: "blur",
           },
         ],

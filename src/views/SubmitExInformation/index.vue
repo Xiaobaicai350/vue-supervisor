@@ -49,13 +49,4 @@ export default {
 };
 </script>
 
-<style>
-.el-main {
-  position: absolute;
-  left: 300px;
-  right: 0;
-  top: 60px;
-  bottom: 0;
-  overflow-y: scroll;
-}
-</style>
+<style></style>

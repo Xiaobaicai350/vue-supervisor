@@ -31,7 +31,8 @@ export default {
   data() {
     return {
       form: {
-        vAQILevel: "",
+        supervisorId: 1,
+        vAQILevel: 0,
         address: "",
         // 这个没用
         delivery: true,

@@ -2,10 +2,10 @@
   <div>
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="预估AQI">
-        <el-input v-model="form.name"></el-input>
+        <el-input v-model="form.vAQILevel"></el-input>
       </el-form-item>
       <el-form-item label="网格地址">
-        <el-select v-model="form.region" placeholder="请选择活动区域">
+        <el-select v-model="form.address" placeholder="请选择活动区域">
           <el-option label="区域一" value="shanghai"></el-option>
           <el-option label="区域二" value="beijing"></el-option>
         </el-select>
@@ -16,7 +16,7 @@
       </el-form-item>
 
       <el-form-item label="异常描述">
-        <el-input type="textarea" v-model="form.desc"></el-input>
+        <el-input type="textarea" v-model="form.description"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">立即创建</el-button>
@@ -26,23 +26,23 @@
   </div>
 </template>
 <script>
+import { insertSuperviseInfo } from "@/apis/supervisor.js";
 export default {
   data() {
     return {
       form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
+        vAQILevel: "",
+        address: "",
+        // 这个没用
         delivery: true,
-        type: [],
-        resource: "",
-        desc: "",
+        description: "",
       },
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
+      const data = await insertSuperviseInfo(this.form);
+      console.log(data);
       console.log("submit!");
     },
   },

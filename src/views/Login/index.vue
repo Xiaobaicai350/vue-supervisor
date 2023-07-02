@@ -5,7 +5,7 @@
       <el-col :span="6"></el-col>
       <el-col :span="6">
         <!--标题-->
-        <h1 class="title">监督员管理系统</h1>
+        <h1 class="title">登录监督员管理系统</h1>
       </el-col>
       <el-col :span="6"></el-col>
     </el-row>
@@ -33,6 +33,9 @@
             >
             <el-button @click="resetForm('loginForm')">重置</el-button>
           </el-form-item>
+          <div style="margin-left: 200px">
+            没有账号？<a href="http://localhost:3000/#/Register">注册一个</a>
+          </div>
         </el-form>
       </el-col>
     </el-row>

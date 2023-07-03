@@ -1,7 +1,7 @@
 // axios基础的封装
 import axios from "axios";
 const httpInstance = axios.create({
-  baseURL: "http://192.168.1.100:8080",
+  baseURL: "http://192.168.1.101:8080",
   timeout: 5000,
 });
 
@@ -10,6 +10,10 @@ const httpInstance = axios.create({
 // axios请求拦截器
 httpInstance.interceptors.request.use(
   (config) => {
+    let token = window.localStorage.getItem("token");
+    console.log(token);
+    token && (config.headers.token = token);
+    console.log(config);
     return config;
   },
   (e) => Promise.reject(e)

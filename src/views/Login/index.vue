@@ -20,8 +20,8 @@
           label-width="21%"
           class="loginForm"
         >
-          <el-form-item label="账户" prop="username" style="width: 380px">
-            <el-input v-model="loginForm.username"></el-input>
+          <el-form-item label="账户" prop="telephone" style="width: 380px">
+            <el-input v-model="loginForm.telephone"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password" style="width: 380px">
             <el-input type="password" v-model="loginForm.password"></el-input>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { login } from "@/apis/supervisor.js";
 export default {
   name: "Login",
   data() {
@@ -50,19 +51,19 @@ export default {
       // 表单信息
       loginForm: {
         // 账户数据
-        username: "",
+        telephone: "12345678987",
         // 密码数据
-        password: "",
+        password: "555",
       },
       // 表单验证
       rules: {
         // 设置账户效验规则
-        username: [
+        telephone: [
           { required: true, message: "请输入账户", trigger: "blur" },
           {
-            min: 3,
-            max: 10,
-            message: "长度在 3 到 10 个字符的账户",
+            min: 0,
+            max: 15,
+            message: "长度在 0 到 15 个字符的账户",
             trigger: "blur",
           },
         ],
@@ -70,9 +71,9 @@ export default {
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
           {
-            min: 6,
+            min: 0,
             max: 15,
-            message: "长度在 6 到 15 个字符的密码",
+            message: "长度在 0 到 15 个字符的密码",
             trigger: "blur",
           },
         ],
@@ -83,11 +84,21 @@ export default {
   },
   methods: {
     // 提交表单
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+    async submitForm(formName) {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
           // 表单验证成功
-          alert("submit");
+          const data = await login(this.loginForm);
+          console.log(data);
+          if (data.code === 20000) {
+            console.log("登录成功");
+            localStorage.setItem("token", data.data.token);
+            this.$router.push("/");
+          } else {
+            console.log("登录失败了");
+            alert("登录失败了");
+          }
+          console.log("submit!");
         } else {
           console.log("error submit!!");
           return false;

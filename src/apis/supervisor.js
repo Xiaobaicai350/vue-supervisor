@@ -30,3 +30,15 @@ export const ListExInformation = () => {
     method: "GET",
   });
 };
+
+//监督员登录
+export const login = ({ telephone, password }) => {
+  return request({
+    url: "/supervisor/login",
+    method: "POST",
+    data: {
+      telephone,
+      password,
+    },
+  });
+};

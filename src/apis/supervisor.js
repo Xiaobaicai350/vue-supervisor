@@ -26,7 +26,7 @@ export const insertSuperviseInfo = ({
 //这里的id是写死的，之后再修改
 export const ListExInformation = () => {
   return request({
-    url: "/supervisor?id=1",
+    url: "/supervisor",
     method: "GET",
   });
 };

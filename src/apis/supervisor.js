@@ -54,3 +54,11 @@ export const register = ({ telephone, name, password }) => {
     },
   });
 };
+
+//监督员注册
+export const info = () => {
+  return request({
+    url: "/supervisor/info",
+    method: "GET",
+  });
+};

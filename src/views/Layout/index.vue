@@ -49,7 +49,7 @@
               <el-dropdown-item>删除</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <span>公众监督员名字</span>
+          <span>{{ this.userInfo.name }}</span>
         </el-header>
         <!-- 一个分割线 -->
         <el-divider></el-divider>
@@ -62,7 +62,13 @@
 </template>
 
 <script>
+import { info } from "@/apis/supervisor.js";
 export default {
+  data() {
+    return {
+      userInfo: {},
+    };
+  },
   methods: {
     toHome() {
       this.$router.push("/").catch((error) => {
@@ -107,6 +113,10 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+  },
+  async mounted() {
+    const data = await info();
+    this.userInfo = data.data;
   },
 };
 </script>

@@ -42,3 +42,15 @@ export const login = ({ telephone, password }) => {
     },
   });
 };
+//监督员注册
+export const register = ({ telephone, name, password }) => {
+  return request({
+    url: "/supervisor/register",
+    method: "POST",
+    data: {
+      telephone,
+      name,
+      password,
+    },
+  });
+};

@@ -20,11 +20,14 @@
           label-width="21%"
           class="loginForm"
         >
-          <el-form-item label="用户名" prop="username" style="width: 380px">
-            <el-input v-model="loginForm.username"></el-input>
+          <el-form-item label="用户名" prop="name" style="width: 380px">
+            <el-input v-model="loginForm.name"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password" style="width: 380px">
             <el-input type="password" v-model="loginForm.password"></el-input>
+          </el-form-item>
+          <el-form-item label="手机号" prop="telephone" style="width: 380px">
+            <el-input v-model="loginForm.telephone"></el-input>
           </el-form-item>
 
           <el-form-item class="btn-ground">
@@ -40,6 +43,7 @@
 </template>
 
 <script>
+import { register } from "@/apis/supervisor.js";
 export default {
   name: "Login",
   data() {
@@ -47,20 +51,16 @@ export default {
       // 表单信息
       loginForm: {
         // 账户数据
-        username: "",
+        name: "胥天昊",
         // 密码数据
-        password: "",
+        password: "123456",
         // 验证码数据
-        code: "",
-        // 记住密码
-        remember: false,
-        // 验证码的key，因为前后端分离，这里验证码不能由后台存入session，所以交给vue状态管理
-        codeToken: "",
+        telephone: "18337406098",
       },
       // 表单验证
       rules: {
         // 设置账户效验规则
-        username: [
+        name: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           {
             min: 3,
@@ -79,16 +79,31 @@ export default {
             trigger: "blur",
           },
         ],
+        telephone: [
+          { required: true, message: "请输入手机号", trigger: "blur" },
+          {
+            min: 6,
+            max: 15,
+            message: "长度是11位",
+            trigger: "blur",
+          },
+        ],
       },
     };
   },
   methods: {
     // 提交表单
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+    async submitForm(formName) {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
           // 表单验证成功
-          alert("submit");
+          const data = await register(this.loginForm);
+          console.log(data);
+          if (data.code === 20000) {
+            alert("注册成功啦，可以去登录了");
+            this.$router.push("/login");
+          }
+          console.log("submit!");
         } else {
           console.log("error submit!!");
           return false;

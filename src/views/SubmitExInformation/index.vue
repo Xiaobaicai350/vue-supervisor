@@ -45,6 +45,14 @@ export default {
       const data = await insertSuperviseInfo(this.form);
       console.log(data);
       console.log("submit!");
+      this.openMessage();
+      this.form = {};
+    },
+    openMessage() {
+      this.$message({
+        message: "恭喜你，提交成功啦",
+        type: "success",
+      });
     },
   },
 };

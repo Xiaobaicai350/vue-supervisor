@@ -2,13 +2,13 @@
 <template>
   <el-table :data="tableData" border stripe style="width: 100%">
     <el-table-column prop="id" label="id"> </el-table-column>
-    <el-table-column prop="address" label="address"> </el-table-column>
-    <el-table-column prop="description" label="description"> </el-table-column>
-    <el-table-column prop="status" label="status"> </el-table-column>
-    <el-table-column prop="supervisorId" label="supervisorId">
+    <el-table-column prop="address" label="地址"> </el-table-column>
+    <el-table-column prop="description" label="描述信息"> </el-table-column>
+    <el-table-column prop="vAQILevel" label="预估AQI等级"> </el-table-column>
+    <el-table-column prop="status" label="是否已委派"> </el-table-column>
+    <el-table-column prop="supervisorId" label="AQI检测员id"> </el-table-column>
+    <el-table-column prop="updateTime" label="异常信息提交时间">
     </el-table-column>
-    <el-table-column prop="updateTime" label="updateTime"> </el-table-column>
-    <el-table-column prop="vAQILevel" label="vAQILevel"> </el-table-column>
   </el-table>
 </template>
 

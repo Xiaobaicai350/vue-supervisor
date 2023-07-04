@@ -55,7 +55,7 @@ export default {
         // 密码数据
         password: "123456",
         // 验证码数据
-        telephone: "18337406098",
+        telephone: "18337496098",
       },
       // 表单验证
       rules: {
@@ -100,7 +100,10 @@ export default {
           const data = await register(this.loginForm);
           console.log(data);
           if (data.code === 20000) {
-            alert("注册成功啦，可以去登录了");
+            this.$message({
+              message: data.message,
+              type: "success",
+            });
             this.$router.push("/login");
           }
           console.log("submit!");

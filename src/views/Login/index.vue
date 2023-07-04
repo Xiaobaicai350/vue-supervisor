@@ -93,10 +93,14 @@ export default {
           if (data.code === 20000) {
             console.log("登录成功");
             localStorage.setItem("token", data.data.token);
+            this.$message({
+              message: data.message,
+              type: "success",
+            });
             this.$router.push("/");
           } else {
             console.log("登录失败了");
-            alert("登录失败了");
+            this.$message.error(data.message);
           }
           console.log("submit!");
         } else {

@@ -2,7 +2,10 @@
   <div>
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="预估AQI">
-        <el-input v-model="form.vAQILevel"></el-input>
+        <!-- <el-input v-model="form.vAQILevel"></el-input> -->
+        <div class="block">
+          <el-slider max="6" v-model="form.vAQILevel"></el-slider>
+        </div>
       </el-form-item>
       <el-form-item label="网格地址">
         <el-select

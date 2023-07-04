@@ -2,11 +2,18 @@
 <template>
   <div>
     <el-table :data="tableData" border stripe style="width: 100%">
-      <el-table-column prop="id" label="id"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
+      <el-table-column prop="id" label="id" width="40"> </el-table-column>
+      <el-table-column prop="address" label="地址" width="100">
+      </el-table-column>
       <el-table-column prop="description" label="描述信息"> </el-table-column>
-      <el-table-column prop="vAQILevel" label="预估AQI等级"> </el-table-column>
-      <el-table-column prop="status" label="是否已委派"> </el-table-column>
+      <el-table-column prop="vAQILevel" label="预估AQI等级" width="110">
+      </el-table-column>
+      <el-table-column prop="status" label="是否已委派">
+        <template slot-scope="scope">
+          <span v-if="scope.row.status === 1">已委派</span>
+          <span v-else-if="scope.row.status === 0">未委派</span>
+        </template>
+      </el-table-column>
       <el-table-column prop="supervisorId" label="AQI检测员id">
       </el-table-column>
       <el-table-column prop="updateTime" label="异常信息提交时间">

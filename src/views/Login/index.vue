@@ -51,9 +51,9 @@ export default {
       // 表单信息
       loginForm: {
         // 账户数据
-        telephone: "12345678987",
+        telephone: "18337496098",
         // 密码数据
-        password: "555",
+        password: "123456",
       },
       // 表单验证
       rules: {

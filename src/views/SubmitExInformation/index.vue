@@ -5,7 +5,11 @@
         <el-input v-model="form.vAQILevel"></el-input>
       </el-form-item>
       <el-form-item label="网格地址">
-        <el-select v-model="form.address" placeholder="请选择活动区域">
+        <el-select
+          v-model="form.address"
+          filterable
+          placeholder="请选择活动区域"
+        >
           <el-option
             v-for="city in citys"
             :key="city"

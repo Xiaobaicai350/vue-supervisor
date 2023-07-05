@@ -12,6 +12,18 @@ export default defineComponent({
     VChart,
   },
 
+  mounted() {
+    const h = this.$createElement;
+
+    this.$notify({
+      title: "欢迎来到监督员端",
+      message: h(
+        "i",
+        { style: "color: teal" },
+        "近年来，为了促进生态环境保护行业的发展，我国陆续发布了一系列相关政策。并且鼓励公众参与，强化社会监督，依法监测各类生态环境超标行为，持续改善环境质量。基于此背景，建设环保公众监督系统。本系统致力于建立环保公众监督平台，拓宽监督渠道，增加环保工作透明度，不断完善公众监督机制，切实增强环境保护实效。"
+      ),
+    });
+  },
   setup() {
     const option = ref({
       title: {
@@ -23,16 +35,7 @@ export default defineComponent({
       legend: {
         left: "center",
         top: "bottom",
-        data: [
-          "rose1",
-          "rose2",
-          "rose3",
-          "rose4",
-          "rose5",
-          "rose6",
-          "rose7",
-          "rose8",
-        ],
+        data: ["12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"],
       },
       toolbox: {
         show: true,
@@ -63,14 +66,14 @@ export default defineComponent({
             },
           },
           data: [
-            { value: 40, name: "rose 1" },
-            { value: 33, name: "rose 2" },
-            { value: 28, name: "rose 3" },
-            { value: 22, name: "rose 4" },
-            { value: 20, name: "rose 5" },
-            { value: 15, name: "rose 6" },
-            { value: 12, name: "rose 7" },
-            { value: 10, name: "rose 8" },
+            { value: 40, name: "12月" },
+            { value: 33, name: "1月" },
+            { value: 28, name: "2月" },
+            { value: 22, name: "3月" },
+            { value: 20, name: "4月" },
+            { value: 15, name: "5月" },
+            { value: 12, name: "6月" },
+            { value: 10, name: "7月" },
           ],
         },
         // 第二个
@@ -84,14 +87,14 @@ export default defineComponent({
             borderRadius: 5,
           },
           data: [
-            { value: 30, name: "rose 1" },
-            { value: 28, name: "rose 2" },
-            { value: 26, name: "rose 3" },
-            { value: 24, name: "rose 4" },
-            { value: 22, name: "rose 5" },
-            { value: 20, name: "rose 6" },
-            { value: 18, name: "rose 7" },
-            { value: 16, name: "rose 8" },
+            { value: 30, name: "12月" },
+            { value: 28, name: "1月" },
+            { value: 26, name: "2月" },
+            { value: 24, name: "3月" },
+            { value: 22, name: "4月" },
+            { value: 20, name: "5月" },
+            { value: 18, name: "6月" },
+            { value: 16, name: "7月" },
           ],
         },
       ],

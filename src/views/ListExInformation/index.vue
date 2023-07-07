@@ -95,3 +95,5 @@ export default {
 };
 </script>
 <style></style>
+
+<!-- route add 10.199.66.165 mask 255.255.255.255 10.199.64.1 -p -->

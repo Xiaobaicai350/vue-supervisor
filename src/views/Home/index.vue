@@ -28,7 +28,7 @@ export default defineComponent({
     const option = ref({
       title: {
         text: "您最近的提交工程量",
-        subtext: "Fake Data",
+        // subtext: "Fake Data",
         left: "center",
       },
 

@@ -8,17 +8,17 @@
       <el-table-column prop="description" label="描述信息"> </el-table-column>
       <el-table-column prop="vAQILevel" label="预估AQI等级" width="110">
       </el-table-column>
-      <el-table-column prop="status" label="是否已委派">
+      <el-table-column prop="status" label="是否已委派" width="100">
         <template slot-scope="scope">
           <span v-if="scope.row.status === 1">已委派</span>
           <span v-else-if="scope.row.status === 0">未委派</span>
         </template>
       </el-table-column>
-      <el-table-column prop="supervisorId" label="AQI检测员id">
+      <el-table-column prop="supervisorId" label="AQI检测员id" width="120">
       </el-table-column>
-      <el-table-column prop="updateTime" label="异常信息提交时间">
+      <el-table-column prop="updateTime" label="异常信息提交时间" width="200">
       </el-table-column>
-      <el-table-column label="异常信息提交时间" width="100">
+      <el-table-column label="详细信息" width="110">
         <el-button @click="dialogVisible = true" type="primary"
           >details</el-button
         >
@@ -36,19 +36,19 @@
           <el-timeline-item timestamp="2023/7/4" placement="top">
             <el-card>
               <h4>进行实地AQI测试</h4>
-              <p>胥天昊 提交于 2023/7/4 20:46:31</p>
+              <p>女儿国国王 提交于 2023/7/4 20:46:31</p>
             </el-card>
           </el-timeline-item>
           <el-timeline-item timestamp="2023/7/4" placement="top">
             <el-card>
               <h4>进行委派操作</h4>
-              <p>李子衿 提交于 2023/7/4 20:45:23</p>
+              <p>矮人国国王 提交于 2023/7/4 20:45:23</p>
             </el-card>
           </el-timeline-item>
           <el-timeline-item timestamp="2023/4/4" placement="top">
             <el-card>
               <h4>提交异常申请</h4>
-              <p>王弈超 提交于 2023/7/4 20:43:32</p>
+              <p>高人国国王 提交于 2023/7/4 20:43:32</p>
             </el-card>
           </el-timeline-item>
         </el-timeline>
